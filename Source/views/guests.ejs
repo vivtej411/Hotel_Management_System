@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <style>
+        table, th, td {
+          border:1px solid black;
+        }
+        
+    </style>
+    <head>
+        <meta charset="utf-8">
+        <title>GUEST PAGE</title>
+        <link rel='stylesheet' href='../styles/style.css' />
+    </head>
+    <body>
+        <div class="topnav">
+            <a href="/guests"><p>GUESTS</p></a>
+            <a href="/rooms"><p>ROOM</p></a>
+            <a href="/staff"><p>STAFF</p></a>
+            <a href="/home" class="split">LOG OUT</a>
+        </div> 
+        <p><h2 style=" color: rgb(98, 6, 6);text-align: center;">WELCOME TO OUR HOTEL</h2></p>
+        <p><h1 style=" color: black;text-align: center;">GUEST STAYING LIST</h1></p>
+        <table style="border: 1px solid black; margin-left: auto; margin-right: auto;" class="container" >
+            <thead>
+            <tr>
+                <th style="border: 1px solid black;">Guest_Id</th>
+                <th style="border: 1px solid black;">Name</th>
+                <th style="border: 1px solid black;">Check_in</th>
+                <th style="border: 1px solid black;">Check_out</th>
+                <th style="border: 1px solid black;">Room_Number</th>
+                <th style="border: 1px solid black;">Charges</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% guest.forEach(function(guest){ %>
+                <tr>
+                  <td><%= guest.G_ID %></td>
+                  <td><%= guest.G_NAME %></td>
+                  <td><%= guest.C_IN %></td>
+                  <td><%= guest.C_OUT %></td>
+                  <td><%= guest.B_ID %></td>
+                  <td><%= guest.AMOUNT %></td>
+                </tr>
+              <% }); %>   
+        </tbody>        
+        </table>
+        <br><br>
+        <div class="FORM">
+        <h3 style="text-align: center;">ADD GUEST TO DATABASE</h3>
+        <form action="/save" method="post">
+            <label>Guest Id</label>
+            <input type="text" name="G_ID" >
+            <label style="padding-left: 5px;">Name</label>
+            <input type="text" name="G_NAME" placeholder="Enter Full Name">
+            <label style="padding-left: 5px;">Check in Date</label>
+            <input type="date" name="C_IN">
+            <label style="padding-left: 5px;">Check out Date</label>
+            <input type="date" name="C_OUT">
+            <label style="padding-left: 5px;">Room Number</label>
+            <input type="text" name="B_ID">
+            <br><br>
+            <input type="submit" value="ADD GUEST" class="button">
+        </form>
+        <br><br>
+        <h3 style="text-align: center;">UPDATE GUEST INFORMATION IN DATABASE</h3>
+        <form action="/update" method="post">
+            <label>Guest Id</label>
+            <input type="text" name="G_ID">
+            <label style="padding-left: 5px;">Name</label>
+            <input type="text" name="G_NAME" placeholder="Enter Full Name">
+            <label style="padding-left: 5px;">Check out Date</label>
+            <input type="date" name="C_OUT">
+            <br>
+            <br>
+            <input type="submit" value="UPDATE" class="button">
+        </form>
+        <br><br>
+        <h3 style="text-align: center;">CHECK-OUT GUEST</h3>
+        <form action="/deleteguest" method="post">
+            <label for="G_ID">Guest Id</label>
+            <input type="text" name="G_ID" >
+            <br><br>
+            <input type="submit" value="CHECK-OUT" class="button">
+        </form>
+    </div>
+        <br><br><br>
+    </body>
+</html>

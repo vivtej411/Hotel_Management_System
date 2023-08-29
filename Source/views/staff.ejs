@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<head>
+  <meta charset="utf-8">
+  <link rel='stylesheet' href='../styles/style.css' />
+  <title>STAFF PAGE</title>
+</head>
+<body>
+  <div class="topnav">
+    <a href="/guests"><p>GUESTS</p></a>
+    <a href="/rooms"><p>ROOM</p></a>
+    <a href="/staff"><p>STAFF</p></a>
+    <a href="/home" class="split">LOG OUT</a>
+  </div> 
+  <p><h1 style=" color: black;text-align: center;">STAFF</h1></p>
+<table style="margin-left: auto; margin-right: auto;">
+  <thead> 
+  <tr>
+      <th>Staff ID</th>
+      <th>Name</th>
+      <th>Contact</th>
+      <th>Staff Job</th>
+      <th>Salary</th>
+    </tr>
+  </thead> 
+    <% staff.forEach(function(staff){ %>
+      <tr>
+        <td><%= staff.S_ID %></td>
+        <td><%= staff.S_NAME %></td>
+        <td><%= staff.S_CONTACT %></td>
+        <td><%= staff.S_JOB %></td>
+        <td><%= staff.S_SAL %></td>
+      </tr>
+    <% }); %>    
+  </table> 
+  <div class="FORM">
+  <h3>Add New Staff to Database</h3>
+  <form action="/saveSTAFF" method="post">
+    <label for="Sid">Staff ID:</label>
+    <input type="text" name="S_ID" placeholder="Enter Staff ID">
+    <label for="Sname" style="padding-left: 5px;">Staff Name:</label>
+    <input type="text" name="S_NAME" placeholder="Enter Staff Name">
+    <label for="Contact" style="padding-left: 5px;">Contact:</label>
+    <input type="text" name="S_CONTACT" placeholder="contact">
+    <label for="job" style="padding-left: 5px;">Job:</label>
+    <input type="text" name="S_JOB">
+    <label for="salary" style="padding-left: 5px;">Staff Salary:</label>
+    <input type="text" name="S_SAL"><br><br>
+    <input type="submit" value="ADD DATA" class="button">
+  </form> 
+  <br><br>
+  <h3>Update Staff Information in Database</h3>
+  <form action="/updatestaff" method="post">
+    <label for="Sid">Staff ID:</label>
+    <input type="text" name="S_ID" placeholder="Enter Staff ID">
+    <label for="Sname" style="padding-left: 5px;">Staff Name:</label>
+    <input type="text" name="S_NAME" placeholder="Enter Staff Name">
+    <label for="Contact" style="padding-left: 5px;">Contact:</label>
+    <input type="text" name="S_CONTACT" placeholder="contact">
+    <label for="job" style="padding-left: 5px;">Job:</label>
+    <input type="text" name="S_JOB">
+    <label for="salary" style="padding-left: 5px;">Staff Salary:</label>
+    <input type="text" name="S_SAL"><br><br>
+    <input type="submit" value="UPDATE" class="button">
+  </form> 
+  <br><br>
+  <h3>Delete a Staff Information From Database</h3>
+  <form action="/delete" method="post">
+    <label for="Sid">Staff ID:</label>
+    <input type="text" name="S_ID" placeholder="Enter Staff ID">
+    <br><br>
+    <input type="submit" value="DELETE" class="button">
+  </form> 
+</div>
+<br><br><br>
+
+</body>
+</html>

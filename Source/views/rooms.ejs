@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        table, th, td {
+          border:1px solid black;
+        }
+    </style>
+<head>
+    <meta charset="utf-8">
+    <link rel='stylesheet' href='../styles/style.css' />
+    <title>ROOM PAGE</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="/guests"><p>GUESTS</p></a>
+        <a href="/rooms"><p>ROOM</p></a>
+        <a href="/staff"><p>STAFF</p></a>
+        <a href="/home" class="split">LOG OUT</a>
+      </div> 
+    <p><h1 style=" color: black;text-align: center;">ROOM LIST</h1></p>
+<table style="margin-left: auto; margin-right: auto;">
+  <thead>
+  <tr>
+        <th>Guest_Id</th>
+        <th>Room_Number</th>
+        <th>Guest_Name</th>
+    </tr>
+  </thead>  
+    <% room.forEach(function(room){ %>
+        <tr>
+          <td><%= room.G_ID %></td>
+          <td><%= room.R_ID %></td>
+          <td><%= room.G_NAME %></td>
+        </tr>
+      <% }); %>
+</table>
+<br><br><br>
+
+</body>
+</html>

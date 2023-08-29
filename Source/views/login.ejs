@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='../styles/style.css' />
+    <title>Hotel Management</title>
+ 
+</head>
+<style>
+    body{
+        background-color: #222D32;
+    }
+    input[type=text] {
+    background-color: #1A2226;
+    border: none;
+    border-bottom: 2px solid #0DB8DE;
+
+    color: #ECF0F5;
+    width:300px;
+    height:50px;
+    font-size: 13pt;
+    }
+    input[type=password] {
+    background-color: #1A2226;
+    border: none;
+    border-bottom: 2px solid #0DB8DE;
+    font-weight: bold;
+    color: #ECF0F5;
+    width:300px;
+    height:50px;
+    font-size: 13pt;
+}
+</style>
+<body>
+    <div class="topnav">
+        <a href="/home"><b>Home</b></a>
+    </div> 
+    <div class="login-box">
+    <h1 style="color: white; padding-top: 7px; letter-spacing: 1px;">ADMIN PANEL</h1>
+    <div class="login">    
+    <form id="login" method="POST" action="/login">
+        <div class="form-group">   
+        <label class="form-control-label"><b>Admin Id</b></label> <br>  
+        <input type="text" name="A_ID" id="A_ID" class="form-control">    
+        </div> 
+        <br><br>
+        <div class="form-group">
+        <label class="form-control-label"><b>Password</b></label><br>
+        <input type="password" name="Password" id="Password" class="form-control">    
+        </div>
+        <br><br>      
+        
+        <input type="submit" name="log" id="log" value="Log In" class="btn-outline-primary"> 
+            
+        <br><br>    
+    </form>     
+    </div>
+</div>
+</body>
+</html>
